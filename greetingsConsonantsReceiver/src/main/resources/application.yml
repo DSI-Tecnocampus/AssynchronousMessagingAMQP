@@ -1,0 +1,20 @@
+server:
+  port: 8081
+
+amqp:
+  exchange:
+    greetings:
+      topic: greetings.topic
+      routing:
+        vowels : greetings.vowels
+        consonants : greetings.consonants
+  queue: consonants.queue
+
+logging:
+  level:
+    org:
+      springframework:
+        amqp:
+          rabbit:
+            core:
+              RabbitAdmin: DEBUG

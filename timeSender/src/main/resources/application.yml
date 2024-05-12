@@ -1,0 +1,12 @@
+server:
+  port: 8081
+
+spring:
+  main:
+    web-application-type: none
+  cloud:
+    stream:
+      bindings:
+        sendTime-out-0:
+          destination: timeChannel
+

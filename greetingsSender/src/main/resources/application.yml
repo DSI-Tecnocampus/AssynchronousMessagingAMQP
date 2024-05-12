@@ -1,0 +1,16 @@
+amqp:
+  exchange:
+    greetings:
+      topic: greetings.topic
+      routing:
+        vowels : greetings.vowels
+        consonants : greetings.consonants
+
+logging:
+  level:
+    org:
+      springframework:
+        amqp:
+          rabbit:
+            core:
+              RabbitAdmin: DEBUG

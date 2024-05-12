@@ -1,0 +1,9 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        decorateGreeting-in-0:
+          destination: greetingChannel
+        decorateGreeting-out-0:
+          destination: decoratedChannel
+
