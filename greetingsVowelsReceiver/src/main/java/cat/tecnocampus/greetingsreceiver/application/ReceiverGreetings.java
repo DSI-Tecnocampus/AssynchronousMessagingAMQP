@@ -2,23 +2,16 @@ package cat.tecnocampus.greetingsreceiver.application;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.stereotype.Service;
 
-import java.util.function.Consumer;
-
-@Configuration
+@Service
 public class ReceiverGreetings {
     private static Logger logger = LoggerFactory.getLogger(ReceiverGreetings.class);
 
-    @Bean
-    public Consumer<String> receiveGreeting() {
-        return payload -> logger.info("Salutation received: " + payload);
-    }
-
-    @Bean
-    public Consumer<String> receiveTime() {
-        return payload -> logger.info("Date received: " + payload);
+    @RabbitListener(queues = "${amqp.queue}")
+    public void receiveConsonantGreeting(String message) {
+        logger.info("Salutation received: " + message);
     }
 
 }

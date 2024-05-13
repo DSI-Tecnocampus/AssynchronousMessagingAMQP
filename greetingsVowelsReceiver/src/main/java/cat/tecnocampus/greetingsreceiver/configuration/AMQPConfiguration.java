@@ -7,9 +7,9 @@ import org.springframework.amqp.rabbit.annotation.RabbitListenerConfigurer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.messaging.converter.MappingJackson2MessageConverter;
 import org.springframework.messaging.handler.annotation.support.DefaultMessageHandlerMethodFactory;
 import org.springframework.messaging.handler.annotation.support.MessageHandlerMethodFactory;
+import org.springframework.messaging.converter.MappingJackson2MessageConverter;
 
 @Configuration
 public class AMQPConfiguration {
@@ -27,7 +27,7 @@ public class AMQPConfiguration {
     @Bean
     public Binding consonantsGreetingBinding(final Queue consonantsQueue,
                                           final TopicExchange greetingsExchange,
-                                          @Value("${amqp.exchange.greetings.routing.consonants}") final String routingConsonants){
+                                          @Value("${amqp.exchange.greetings.routing.vowels}") final String routingConsonants){
 
         return BindingBuilder.bind(consonantsQueue)
                 .to(greetingsExchange)
